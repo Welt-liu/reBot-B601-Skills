@@ -26,6 +26,15 @@ sudo ip link set can0 up
 ip -br link show can0
 ```
 
+## 检查
+
+执行以下命令：
+
+```bash
+motorbridge-cli scan --vendor robstride --channel can0 --start-id 1 --end-id 8
+```
+如果hit中1～7号电机，提示用户可能当前机械臂为成品版本，不需要修改id，本skill无需执行
+
 ## 修改电机 ID
 
 机械臂共有 7 颗电机，需循环设置 ID，总共 7 次。用户分配的 ID 应为 1～7，每颗电机设置一个。
@@ -59,7 +68,7 @@ motorbridge-cli scan --vendor robstride --channel can0 --start-id 126 --end-id 1
 motorbridge-cli id-set --vendor robstride --motor-id 127 --new-motor-id 5
 ```
 
-## 检查
+## 最后确认
 
 执行以下命令：
 

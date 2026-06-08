@@ -15,7 +15,7 @@
 
 ## 第一步：环境初始化
 
-运行 Skill `/setup-env` 完成以下安装：
+运行 [环境初始化Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/setup-environment.md) 完成以下安装：
 
 - [x] Miniforge 安装
 - [x] motorbridge 配置
@@ -31,7 +31,7 @@ conda activate rebot
 
 ## 第二步：写入电机 ID
 
-运行 Skill `/write-motor-id`。
+运行 [写入电机ID Skill] (https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/write-motor-id.md)
 
 该 Skill 会自动完成：
 
