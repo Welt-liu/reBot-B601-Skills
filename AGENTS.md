@@ -3,6 +3,7 @@
 > 本文档仅适用于 **B601-RS 机械臂**。
 > 除了需要用户给予权限的命令外，都由你在得到用户同意后执行，除了异常状况外，不要让用户自己转到终端处理。
 > 不要使用文档中没有提及的motorbridge-cli指令，因为那可能会启动电机导致意外发生。
+
 ## 快速开始
 
 请确认你的机械臂属于以下哪种形式：
@@ -18,9 +19,9 @@
 
 运行 [环境初始化Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/setup-environment.md) 完成以下安装：
 
-- [x] Miniforge 安装
-- [x] motorbridge 配置
-- [x] Gateway 安装
+- [ ] Miniforge 安装
+- [ ] motorbridge 配置
+- [ ] Gateway 安装
 
 完成后确保已激活虚拟环境：
 
@@ -32,7 +33,7 @@ conda activate rebot
 
 ## 第二步：写入电机 ID
 
-运行 [写入电机ID Skill] (https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/write-motor-id.md)
+运行 [写入电机ID Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/write-motor-id.md)
 
 该 Skill 会自动完成：
 
@@ -47,9 +48,12 @@ conda activate rebot
 
 ## 第三步：校准零点
 
-> 该部分文档待完善。
+运行 `/write-motor-zero` Skill。
 
-运行 Skill `/write-motor-zero`（开发中）。
+该 Skill 会完成：
+
+1. **启动 motorbridge-gateway**（绑定 `127.0.0.1:9002`，使用 `can0`）
+2. **引导用户打开 Motorbridge Studio 网页** 完成零点校准
 
 ---
 
@@ -57,6 +61,6 @@ conda activate rebot
 
 | Skill | 文件 | 状态 |
 |-------|------|------|
-| `/setup-env` | `skills/setup-env.md` | 已完成 |
+| `/setup-env` | `skills/setup-environment.md` | 已完成 |
 | `/write-motor-id` | `skills/write-motor-id.md` | 已完成 |
-| `/write-motor-zero` | `skills/write-motor-zero.md` | 待开发 |
+| `/write-motor-zero` | `skills/write-motor-zero.md` | 已完成 |

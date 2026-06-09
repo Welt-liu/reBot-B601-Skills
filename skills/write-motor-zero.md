@@ -1,29 +1,23 @@
 # 零点校准
 
-conda activate rebot
-这一步使用如下命令
+## 使用前提
 
+- 已完成 `/write-motor-id`，电机 ID 已正确写入
+- `can0` 已配置且处于 UP 状态（第二步中已配置）
 
-通过以下特征识别目标设备：
+## 步骤
 
-```bash
-# 套件里是 PCAN-USB，通常应直接出现 can0 或 can1
-sudo modprobe peak_usb
-ip -br link
-
-# 如果出现 can0，设置 bitrate
-sudo ip link set can0 down 2>/dev/null
-sudo ip link set can0 type can bitrate 1000000 restart-ms 100
-sudo ip link set can0 up
-
-# 确认状态
-ip -br link show can0
-```
-
+### 1. 激活环境并启动 Gateway
 
 ```bash
 conda activate rebot
-motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can0  
+motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can0
 ```
 
-然后提示用户打开网页 https://motorbridge.github.io/motorbridge-studio/
+Gateway 启动后保持运行，不要关闭该终端。
+
+### 2. 打开 Motorbridge Studio
+
+提示用户访问：https://motorbridge.github.io/motorbridge-studio/
+
+通过网页界面完成零点校准操作。

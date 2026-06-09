@@ -1,4 +1,4 @@
-# reBot B601-RS AGENT skills
+# reBot B601-RS & B601-DM AGENT skills
 
 本 AGENT 文档目标是协助用户初步排查机械臂遇到的问题，并且协助用户安装所需环境。
 
