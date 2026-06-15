@@ -107,6 +107,15 @@ conda activate rebot
 
    > 默认安装路径示例：`~/miniforge3`（即 `C:\Users\<用户名>\miniforge3`）。
 
+   **PowerShell 用户**：如果 `conda` 命令找不到，需要先初始化 PowerShell：
+
+   ```powershell
+   # 初始化 PowerShell（执行一次即可）
+   conda init powershell
+   ```
+
+   关闭并重新打开 PowerShell 后，`conda` 命令即可使用。或者使用 Miniforge 自带的 **Anaconda Prompt**（安装时自动创建），无需额外配置。
+
 ---
 
 ## 第二步：安装 motorbridge
