@@ -1,11 +1,11 @@
-# Zero Calibration
+## Zero Calibration
 
-> **Note: This Agent Skill is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
+> **Note: This reference document is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
 
 ## Prerequisites
 
-- `/write-motor-id` has been completed, motor IDs are correctly set
-- `can0` is configured and UP (Linux needs configuration in `/setup-environment`; Windows does not)
+- Motor IDs have been correctly set via the write motor ID process
+- `can0` is configured and UP (Linux needs configuration in environment setup; Windows does not)
 
 ## Steps
 
@@ -33,7 +33,7 @@ motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can
 motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can0@1000000
 ```
 
-> **Windows `conda activate` tip**: If you get "CommandNotFoundError", conda hasn't been initialized for this shell. Use Miniforge Prompt, or the full path: `<miniforge_install_path>\Scripts\activate.bat rebot`. Git Bash users see the initialization steps in `/setup-environment`.
+> **Windows `conda activate` tip**: If you get "CommandNotFoundError", conda hasn't been initialized for this shell. Use Miniforge Prompt, or the full path: `<miniforge_install_path>\Scripts\activate.bat rebot`. Git Bash users see the initialization steps in the [Environment Setup Reference](setup-environment.md).
 
 Keep the Gateway running — do not close this terminal.
 

@@ -17,7 +17,7 @@ Please confirm which form of robotic arm you have:
 
 ## Step 1: Environment Initialization
 
-Run the [Setup Environment Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/en/setup-environment.md) to complete the following:
+See [Environment Setup Reference](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/en/references/setup-environment.md) to complete the following:
 
 - [ ] Python environment setup (Miniforge or existing Python)
 - [ ] motorbridge installation
@@ -29,15 +29,15 @@ After completion, verify motorbridge-cli is available:
 motorbridge-cli --help
 ```
 
-> **Windows users**: Use Miniforge to create a conda environment — do not use system Python directly. No can0 configuration needed. See [Setup Environment Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/en/setup-environment.md) for details.
+> **Windows users**: Use Miniforge to create a conda environment — do not use system Python directly. No can0 configuration needed. See [Environment Setup Reference](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/en/references/setup-environment.md) for details.
 
 ---
 
 ## Step 2: Write Motor IDs
 
-Run the [Write Motor ID Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/en/write-motor-id.md)
+See [Write Motor ID Reference](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/en/references/write-motor-id.md)
 
-This Skill will automatically:
+This reference guides you through:
 
 1. **Identify the USB-CAN adapter** (PCAN-USB; Linux: configure `can0` at bitrate `1000000`, Windows: driver auto-detects)
 2. **Set motor IDs one by one** (7 motors total, ID range 1–7)
@@ -51,19 +51,19 @@ This Skill will automatically:
 
 ## Step 3: Zero Calibration
 
-Run the `/write-motor-zero` Skill.
+See the [Zero Calibration Reference](references/write-motor-zero.md).
 
-This Skill will:
+This reference guides you through:
 
 1. **Start motorbridge-gateway** (bound to `127.0.0.1:9002`, using `can0`)
 2. **Guide the user to open Motorbridge Studio** to complete zero calibration
 
 ---
 
-## Skills Status
+## Reference Documents Status
 
-| Skill | File | Status |
-|-------|------|--------|
-| `/setup-env` | `skills/en/setup-environment.md` | Completed |
-| `/write-motor-id` | `skills/en/write-motor-id.md` | Completed |
-| `/write-motor-zero` | `skills/en/write-motor-zero.md` | Completed |
+| Reference | File | Status |
+|-----------|------|--------|
+| Environment Setup | `references/setup-environment.md` | Completed |
+| Write Motor ID | `references/write-motor-id.md` | Completed |
+| Zero Calibration | `references/write-motor-zero.md` | Completed |

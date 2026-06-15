@@ -1,6 +1,6 @@
-# Environment Setup
+## Environment Setup
 
-> **Note: This Agent Skill is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
+> **Note: This reference document is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
 
 ## Step 0: Check for Existing Installation
 
@@ -10,7 +10,7 @@ Before starting, check whether motorbridge is already installed:
 motorbridge-cli --help 2>/dev/null || python -m motorbridge --help 2>/dev/null || echo "motorbridge not installed"
 ```
 
-- If help text is displayed, motorbridge is **already installed** — skip to the next Skill
+- If help text is displayed, motorbridge is **already installed** — skip to the next steps
 - If `motorbridge not installed` is shown, proceed with the steps below
 
 ---

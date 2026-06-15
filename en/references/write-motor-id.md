@@ -1,11 +1,11 @@
-# Write Motor ID
+## Write Motor ID
 
-> **Note: This Agent Skill is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
-> **Reminder: Ensure motors are correctly connected and powered on before executing this Skill. Observe electrical safety precautions.**
+> **Note: This reference document is a beta version and for reference only. If you have any questions or encounter issues, please contact Seeed for support.**
+> **Reminder: Ensure motors are correctly connected and powered on before executing this process. Observe electrical safety precautions.**
 
 ## Prerequisites
 
-The `/setup-environment` Skill has been completed or motorbridge is already installed.
+Environment setup has been completed or motorbridge is already installed.
 
 Verify motorbridge-cli is available before proceeding:
 
@@ -124,7 +124,7 @@ motorbridge-cli scan \
 **damiao (Windows):** replace `--serial-port /dev/ttyACM0` with `--serial-port COMx`
 
 Decision logic:
-- **robstride**: If motors 1–7 are detected, inform the user that the robotic arm may already be a finished product and ID modification is not needed. This Skill does not need to be executed.
+- **robstride**: If motors 1–7 are detected, inform the user that the robotic arm may already be a finished product and ID modification is not needed. This process does not need to be executed.
 - **damiao**: Determine whether modification is needed based on detected IDs.
 
 ---
@@ -255,4 +255,4 @@ On successful scan, the CLI will output something like:
 scan done: 7 motor(s) found
 ```
 
-Inform the user which motors were detected. Once the user confirms all IDs 1–7 are correct, this Skill is complete; if any are missing, go back to re-modify the corresponding motor.
+Inform the user which motors were detected. Once the user confirms all IDs 1–7 are correct, this process is complete; if any are missing, go back to re-modify the corresponding motor.

@@ -1,11 +1,11 @@
-# 零点校准
+## 零点校准
 
-> **注意：当前 Agent Skill 为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
+> **注意：当前参考文档为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
 
 ## 使用前提
 
-- 已完成 `/write-motor-id`，电机 ID 已正确写入
-- `can0` 已配置且处于 UP 状态（Linux 需在 `/setup-environment` 中配置）
+- 已完成电机 ID 写入，电机 ID 已正确写入
+- `can0` 已配置且处于 UP 状态（Linux 需在环境初始化中配置）
 
 ## 步骤
 
@@ -35,7 +35,7 @@ motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can
 
 > **Windows `conda activate` 提示**：如果报错 "CommandNotFoundError"，说明 conda 未初始化当前 shell。
 > 使用 Miniforge Prompt 执行，或使用完整路径：`<miniforge安装路径>\Scripts\activate.bat rebot`。
-> Git Bash 用户参见 `/setup-environment` 中的初始化说明。
+> Git Bash 用户参见 [环境初始化参考](setup-environment.md) 中的初始化说明。
 
 Gateway 启动后保持运行，不要关闭该终端。
 

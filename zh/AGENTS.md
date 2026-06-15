@@ -17,7 +17,7 @@
 
 ## 第一步：环境初始化
 
-运行 [环境初始化Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/setup-environment.md) 完成以下安装：
+运行 [环境初始化参考](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/zh/references/setup-environment.md) 完成以下安装：
 
 - [ ] Python 环境准备（Miniforge 或已有 Python）
 - [ ] motorbridge 安装
@@ -35,9 +35,9 @@ motorbridge-cli --help
 
 ## 第二步：写入电机 ID
 
-运行 [写入电机ID Skill](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/skills/write-motor-id.md)
+运行 [写入电机ID参考](https://github.com/Welt-liu/reBot-B601-RS-Skills/blob/main/zh/references/write-motor-id.md)
 
-该 Skill 会自动完成：
+该参考文档会引导你完成：
 
 1. **识别 USB-CAN 转接板**（PCAN-USB；Linux 配置 `can0` bitrate `1000000`，Windows 驱动自动识别）
 2. **逐颗电机设置 ID**（共 7 颗电机，ID 范围 1–7）
@@ -51,19 +51,19 @@ motorbridge-cli --help
 
 ## 第三步：校准零点
 
-运行 `/write-motor-zero` Skill。
+参考 [零点校准文档](references/write-motor-zero.md)。
 
-该 Skill 会完成：
+该文档会引导你完成：
 
 1. **启动 motorbridge-gateway**（绑定 `127.0.0.1:9002`，使用 `can0`）
 2. **引导用户打开 Motorbridge Studio 网页** 完成零点校准
 
 ---
 
-## Skills 状态
+## 参考文档状态
 
-| Skill | 文件 | 状态 |
-|-------|------|------|
-| `/setup-env` | `skills/setup-environment.md` | 已完成 |
-| `/write-motor-id` | `skills/write-motor-id.md` | 已完成 |
-| `/write-motor-zero` | `skills/write-motor-zero.md` | 已完成 |
+| 参考文档 | 文件 | 状态 |
+|----------|------|------|
+| 环境初始化 | `references/setup-environment.md` | 已完成 |
+| 写入电机 ID | `references/write-motor-id.md` | 已完成 |
+| 零点校准 | `references/write-motor-zero.md` | 已完成 |

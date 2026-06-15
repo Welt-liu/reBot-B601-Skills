@@ -1,10 +1,10 @@
-# 环境初始化
+## 环境初始化
 
-> **注意：当前 Agent Skill 为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
+> **注意：当前参考文档为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
 
 ## 执行前必读
 
-开始前，先检查 `memory/local-machine-env.md` 是否已有当前机器的环境配置。如果已有 conda 路径和 motorbridge 信息，可直接使用；如果没有或信息不完整，按以下步骤重新初始化。
+开始前，先检查 `../memory/local-machine-env.md` 是否已有当前机器的环境配置。如果已有 conda 路径和 motorbridge 信息，可直接使用；如果没有或信息不完整，按以下步骤重新初始化。
 
 ## 第零步：检查是否已安装
 
@@ -18,7 +18,7 @@ motorbridge-cli --help 2>/dev/null || python -m motorbridge --help 2>/dev/null |
 motorbridge-cli --help *>&1 | Out-Null; if ($LASTEXITCODE -ne 0) { python -m motorbridge *>&1 | Out-Null; if ($LASTEXITCODE -ne 0) { echo "motorbridge not installed" } }
 ```
 
-- 如果输出帮助信息，说明 **motorbridge 已安装**，可跳过第一、二步，直接进入后续 Skill
+- 如果输出帮助信息，说明 **motorbridge 已安装**，可跳过第一、二步，直接进入后续步骤
 - 如果输出 `motorbridge not installed`，继续执行以下步骤
 
 ---
@@ -78,7 +78,7 @@ conda activate rebot
 
 2. 双击运行安装器完成安装，然后打开 **Anaconda Prompt**（或 Miniforge Prompt），创建并激活虚拟环境：
 
-> **写入 memory**：安装完成后，记录 Miniforge 实际安装路径到 `memory/local-machine-env.md`：
+> **写入 memory**：安装完成后，记录 Miniforge 实际安装路径到 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > ## conda
@@ -142,7 +142,7 @@ motorbridge-cli --help
 
 如果提示命令未找到，检查 Python Scripts 目录是否在 PATH 中。Windows 用户使用完整路径执行。
 
-> **写入 memory**：安装成功后，记录 motorbridge-cli 实际路径到 `memory/local-machine-env.md`：
+> **写入 memory**：安装成功后，记录 motorbridge-cli 实际路径到 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > ## motorbridge
@@ -180,7 +180,7 @@ Windows 使用 PCAN-USB **不需要配置 can0 接口**。
 2. 插入 PCAN-USB 转接板
 3. 无需执行任何额外配置命令，直接使用 `motorbridge-cli` 即可
 
-> **写入 memory**：PCAN-USB 驱动安装完成后，更新 `memory/local-machine-env.md`：
+> **写入 memory**：PCAN-USB 驱动安装完成后，更新 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > - PCAN-USB 驱动：已安装
@@ -214,7 +214,7 @@ sudo usermod -aG dialout $USER
 2. 在设备管理器中确认 COM 端口号
 3. 使用 `--serial-port COMx` 指定对应端口（如 `COM3`）
 
-> **写入 memory**：确认 COM 端口后，更新 `memory/local-machine-env.md`：
+> **写入 memory**：确认 COM 端口后，更新 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > - 达妙串口：COMx

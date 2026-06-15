@@ -1,11 +1,11 @@
-# 写入电机 ID
+## 写入电机 ID
 
-> **注意：当前 Agent Skill 为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
-> **提醒：执行本 Skill 前请确保电机已正确连接且上电，操作过程中注意用电安全。**
+> **注意：当前参考文档为测试版本，仅供参考。如有任何疑问或遇到问题，请联系 Seeed 获取支持。**
+> **提醒：执行本流程前请确保电机已正确连接且上电，操作过程中注意用电安全。**
 
 ## 使用前提
 
-已完成 `/setup-environment` Skill 或 motorbridge 已安装。
+已完成环境初始化步骤或 motorbridge 已安装。
 
 执行前先验证 motorbridge-cli 可用：
 
@@ -31,7 +31,7 @@ motorbridge-cli --help 2>/dev/null || echo "motorbridge-cli not found"
 | 硬件连接 | PCAN-USB/串口是否插入、CAN 线是否连接、电机是否上电 | 已连接已上电 |
 | 当前连接数 | 修改 ID 时只能连接一颗电机 | 仅 1 颗 |
 
-> **写入 memory**：收集完上述信息后，追加到 `memory/local-machine-env.md`（如文件中尚无电机相关信息）：
+> **写入 memory**：收集完上述信息后，追加到 `../memory/local-machine-env.md`（如文件中尚无电机相关信息）：
 >
 > ```markdown
 > ## 电机配置
@@ -147,7 +147,7 @@ motorbridge-cli scan \
 **damiao（Windows）：** 将 `--serial-port /dev/ttyACM0` 替换为 `--serial-port COMx`
 
 判断逻辑：
-- **robstride** 如果命中 1～7 号电机，提示用户当前机械臂可能为成品版本，不需要修改 ID，本 Skill 无需执行
+- **robstride** 如果命中 1～7 号电机，提示用户当前机械臂可能为成品版本，不需要修改 ID，本流程无需执行
 - **damiao** 根据命中的 ID 判断是否需要修改
 
 ---
@@ -247,7 +247,7 @@ motorbridge-cli scan --vendor robstride --channel can0 --start-id <新ID> --end-
 - 如果新 ID 命中、旧 ID 无响应 → 修改成功
 - 如果旧 ID 仍然命中 → 修改失败，重新执行 `id-set`
 
-> **写入 memory**：每颗电机 ID 设置成功后，追加到 `memory/local-machine-env.md`：
+> **写入 memory**：每颗电机 ID 设置成功后，追加到 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > ### 已设置的电机
@@ -285,9 +285,9 @@ motorbridge-cli scan \
 scan done: 7 motor(s) found
 ```
 
-告知用户命中了哪些电机。用户确认 ID 1~7 全部正确后，本 Skill 执行完成；如有缺失则返回对应电机重新修改。
+告知用户命中了哪些电机。用户确认 ID 1~7 全部正确后，本流程执行完成；如有缺失则返回对应电机重新修改。
 
-> **写入 memory**：最终扫描完成后，更新 `memory/local-machine-env.md`：
+> **写入 memory**：最终扫描完成后，更新 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > ### 电机 ID 设置完成
