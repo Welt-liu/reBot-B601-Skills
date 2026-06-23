@@ -206,11 +206,16 @@ cd PCBUSB
 sudo ./install.sh
 ```
 
-2. Link the PCBUSB library into the conda environment so motorbridge can find it:
+2. Configure `DYLD_LIBRARY_PATH` so `motorbridge-gateway` can find the PCBUSB library at runtime. Create an activation script in the conda environment — it takes effect automatically on every `conda activate rebot`:
 
 ```bash
-ln -s /usr/local/lib/libPCBUSB.dylib "$CONDA_PREFIX/lib/PCBUSB"
+mkdir -p "$CONDA_PREFIX/etc/conda/activate.d"
+cat > "$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh" << 'EOF'
+export DYLD_LIBRARY_PATH="/usr/local/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+EOF
 ```
+
+> **Note**: On macOS, `motorbridge-gateway` calls `dlopen("PCBUSB")` which does not search `/usr/local/lib/` by default. `DYLD_LIBRARY_PATH` is required to make it discoverable. `motorbridge-cli` is not affected.
 
 3. Verify the installation:
 
@@ -219,14 +224,18 @@ ln -s /usr/local/lib/libPCBUSB.dylib "$CONDA_PREFIX/lib/PCBUSB"
 python -c "import motorbridge; print('motorbridge OK')"
 motorbridge-cli --help
 
-# Optional: check that the PCBUSB runtime can be loaded
+# Check that the PCBUSB runtime can be loaded
 python -c "import ctypes; ctypes.CDLL('libPCBUSB.dylib'); print('PCBUSB load OK')"
+
+# Confirm the environment variable is set
+echo $DYLD_LIBRARY_PATH
 ```
 
 > **Write to memory**: After installation, update `../memory/local-machine-env.md`:
 >
 > ```markdown
 > - PCBUSB library: installed (macOS)
+> - DYLD_LIBRARY_PATH: auto-set to `/usr/local/lib` via `$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh`
 > ```
 
 ### Windows — robstride (USB-CAN)

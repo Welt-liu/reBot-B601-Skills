@@ -206,10 +206,13 @@ cd PCBUSB
 sudo ./install.sh
 ```
 
-2. 将 PCBUSB 库链接到 conda 环境，确保 motorbridge 可以找到：
+2. 配置 `DYLD_LIBRARY_PATH`，确保 motorbridge-gateway 运行时能找到 PCBUSB 库。在 conda 环境中创建激活脚本，每次 `conda activate rebot` 自动生效：
 
 ```bash
-ln -s /usr/local/lib/libPCBUSB.dylib "$CONDA_PREFIX/lib/PCBUSB"
+mkdir -p "$CONDA_PREFIX/etc/conda/activate.d"
+cat > "$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh" << 'EOF'
+export DYLD_LIBRARY_PATH="/usr/local/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+EOF
 ```
 
 3. 验证安装是否就绪：
@@ -219,14 +222,18 @@ ln -s /usr/local/lib/libPCBUSB.dylib "$CONDA_PREFIX/lib/PCBUSB"
 python -c "import motorbridge; print('motorbridge OK')"
 motorbridge-cli --help
 
-# 可选：检查 PCBUSB 运行时是否可加载
+# 检查 PCBUSB 运行时是否可加载
 python -c "import ctypes; ctypes.CDLL('libPCBUSB.dylib'); print('PCBUSB load OK')"
+
+# 确认环境变量已生效
+echo $DYLD_LIBRARY_PATH
 ```
 
 > **写入 memory**：安装完成后，更新 `../memory/local-machine-env.md`：
 >
 > ```markdown
 > - PCBUSB 库：已安装（macOS）
+> - DYLD_LIBRARY_PATH：通过 `$CONDA_PREFIX/etc/conda/activate.d/env_vars.sh` 自动设置 `/usr/local/lib`
 > ```
 
 ### Windows — robstride（USB-CAN）

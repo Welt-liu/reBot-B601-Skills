@@ -5,7 +5,7 @@
 ## Prerequisites
 
 - Motor IDs have been correctly set via the write motor ID process
-- `can0` is configured and UP (Linux needs configuration in environment setup; Windows does not)
+- `can0` is configured and UP (Linux needs configuration in environment setup; Windows/macOS do not)
 
 ## Steps
 
@@ -16,6 +16,19 @@
 ```bash
 conda activate rebot
 motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can0
+```
+
+**macOS (routing mode recommended):**
+
+```bash
+conda activate rebot
+motorbridge-gateway -- --bind 127.0.0.1:9002
+```
+
+macOS uses PCAN-USB — no can0 configuration needed. In routing mode, only `--bind` is needed — the web UI will auto-select vendor/channel/ID. To specify a channel explicitly:
+
+```bash
+motorbridge-gateway -- --bind 127.0.0.1:9002 --channel can0@1000000
 ```
 
 **Windows (routing mode recommended):**

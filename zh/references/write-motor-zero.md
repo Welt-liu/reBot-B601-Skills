@@ -5,7 +5,7 @@
 ## 使用前提
 
 - 已完成电机 ID 写入，电机 ID 已正确写入
-- `can0` 已配置且处于 UP 状态（Linux 需在环境初始化中配置）
+- `can0` 已配置且处于 UP 状态（Linux 需在环境初始化中配置；Windows/macOS 无需配置）
 
 ## 步骤
 
@@ -16,6 +16,19 @@
 ```bash
 conda activate rebot
 motorbridge-gateway -- --bind 127.0.0.1:9002 --transport socketcan --channel can0
+```
+
+**macOS（推荐路由模式）：**
+
+```bash
+conda activate rebot
+motorbridge-gateway -- --bind 127.0.0.1:9002
+```
+
+macOS 使用 PCAN-USB，无需配置 can0 接口。路由模式下仅需 `--bind`，web UI 会自动选择 vendor/channel/ID。如需指定通道，使用：
+
+```bash
+motorbridge-gateway -- --bind 127.0.0.1:9002 --channel can0@1000000
 ```
 
 **Windows（推荐路由模式）：**
